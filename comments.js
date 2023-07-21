@@ -1,17 +1,18 @@
 // Create an express server
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const port = 3000;
 
-// Import the comment model
-const Comment = require('../models/comment');
+// Use body parser to parse JSON body
+app.use(bodyParser.json());
 
-// Create a comment
+// Create a route for the app
 app.post('/comments', (req, res) => {
-    // Create a new comment
-    const newComment = new Comment({
-        text: req.body.text,
+  // Create a comment
+  console.log(req.body);
+  res.send('Hello World!');
+});
 
-
-
-
-
+// Start the server
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
